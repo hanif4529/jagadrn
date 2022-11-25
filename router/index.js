@@ -1,10 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import OnBoarding from "../pages/OnBoarding";
-import ChangePassword from "../pages/ChangePassword";
-import ChangePasswordSucces from "../pages/ChangePasswordSucces";
-import SecurityAccess from "../pages/SecurityAccess";
-import CreateNewPassword from "../pages/CreateNewPassword";
+import {OnBoarding, ChangePassword, CreateNewPassword, ChangePasswordSucces, SecurityAccess} from '../pages'
 
 const Stack = createNativeStackNavigator();
 
