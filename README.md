@@ -14,12 +14,20 @@ This app create using react native (setup using expo) [More about expo](https://
     cd your_directory_after_clone &&
     yarn
     ```
-4. Run app
+4. Run app (make sure your wifi in same network)
     - run on IOS or IOS simulator
     ```bash
-    yarn ios
+    yarn start
     ```
     - run on Android or Android simulator
     ```bash
-    yarn ios
+    yarn start
     ``` 
+scan qr on terminal to open using expo go
+
+5. Run Using expo tunnel
+  - run server using expo tunnel
+    ```bash 
+    npx expo start --tunnel 
+    ```
+scan qr on terminal to open using expo go
