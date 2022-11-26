@@ -18,13 +18,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hanif4529.jagadrn"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/Logo-adaptive.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.hanif4529.jagadrn"
     },
     "web": {
       "favicon": "./assets/images/Logo.png"
