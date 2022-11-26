@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TextInput as TextInputRN, Image, TouchableOpaci
 import Gap from './Gap';
 
 const TextInput = ({ label, placeholder, image, helperText, onPress, isError, ...restProps }) => {
-    console.log(isError)
     return (
         <View>
             <Text style={styles.label}>{label}</Text>

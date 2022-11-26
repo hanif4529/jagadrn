@@ -1,9 +1,36 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
-import { Header, TextInput, Gap, Button } from '../components'
-import { EyeHide } from '../assets/Icon'
+import { Header, TextInput, Gap } from '../components'
+import { EyeHide, EyeHideActive, Key, KeyActive } from '../assets/Icon'
+import { useForm } from '../utils'
 
-const ChangePassword = ({navigation}) => {
+const ChangePassword = ({ navigation }) => {
+  const { errors, isValid, onChange, form } = useForm({
+    oldPassword: "",
+    password: "",
+    confirmPassword: "",
+  }, {
+    oldPassword: {
+      required: true,
+      same: "OldPass",
+      message: "Password doesn't match to ReactChallange",
+    },
+    password: {
+      required: true,
+      minLength: 8,
+      pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+      message: 'Password must be 8 or more characters and contain at least one number and 1 symbols and 1 uppercase',
+    },
+    confirmPassword: {
+      confirm: 'password',
+      message: "Password doesn't match",
+    },
+  })
+
+  const [showPassword, setShowPassword] = React.useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = React.useState(false)
+  const [showOldPassword, setShowOldPassword] = React.useState(false)
+
   return (
     <SafeAreaView style={styles.page}>
       <Header title={"CHANGE PASSWORD"} onBack={() => {
@@ -20,14 +47,54 @@ const ChangePassword = ({navigation}) => {
           </Text>
         </View>
         <View style={styles.form}>
-          <TextInput label={"Enter Old Password"} secureTextEntry placeholder="Enter Old Password" image={EyeHide} />
+          <TextInput
+            label={"Enter Old Password"}
+            secureTextEntry={!showOldPassword}
+            placeholder="Enter Old Password"
+            image={form.oldPassword ? EyeHideActive : EyeHide}
+            value={form.oldPassword}
+            onChangeText={(value) => onChange('oldPassword', value)}
+            isError={errors.oldPassword}
+            helperText={errors.oldPassword}
+            onPress={() => setShowOldPassword(!showOldPassword)}
+          />
           <Gap height={12} />
-          <TextInput label={"Create Password"} secureTextEntry placeholder="Your Password" image={EyeHide} helperText="Must be 6 or more characters and contain at least one number and 1 symbols" />
+          <TextInput
+            label={"Create Password"}
+            secureTextEntry={!showPassword}
+            placeholder="Your Password"
+            helperText="Must be 8 or more characters and contain at least one number,1 symbols and one uppercase"
+            value={form.password}
+            image={form.password ? EyeHideActive : EyeHide}
+            onChangeText={(value) => onChange('password', value)}
+            isError={errors.password}
+            onPress={() => setShowPassword(!showPassword)}
+          />
           <Gap height={12} />
-          <TextInput label={"Verify Password"} secureTextEntry placeholder="Verify Your Password" image={EyeHide} />
+          <TextInput
+            label={"Verify Password"}
+            secureTextEntry={!showConfirmPassword}
+            placeholder="Verify Your Password"
+            image={form.confirmPassword ? EyeHideActive :EyeHide}
+            value={form.confirmPassword}
+            onChangeText={(value) => onChange('confirmPassword', value)}
+            isError={errors.confirmPassword}
+            helperText={errors.confirmPassword}
+            onPress={() => setShowConfirmPassword(!showConfirmPassword)}
+          />
+          <Gap height={24} />
+          <View style={{ alignSelf: "flex-end" }}>
+            <TouchableOpacity activeOpacity={0.7} onPress={isValid ? ()=> {
+              navigation.navigate("ChangePasswordSucces")
+            } : null}>
+              <View style={styles.btnContainer(isValid ? "#4D0D6E" : "#E4E7EC")}>
+                <Text style={styles.btnLabel(isValid ? "white" : "#E4E7EC")}>Change</Text>
+                <Image source={isValid ? KeyActive : Key} style={styles.icon} />
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-
     </SafeAreaView>
   )
 }
@@ -54,10 +121,21 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginHorizontal: 16,
   },
-  btnContainer: {
-    marginHorizontal: 16,
-    marginTop: 24,
-  },
+  btnContainer: (color) => ({
+    flexDirection: 'row',
+    backgroundColor: color,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: 120,
+    height: 40,
+    paddingHorizontal: 16,
+  }),
+  btnLabel: (color) => ({
+    color: color,
+    fontSize: 14,
+    fontFamily: 'Poppins-Medium',
+  }),
   informationContainer: {
     paddingHorizontal: 52,
     marginTop: 24,
@@ -73,5 +151,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
     color: '#383939',
     textAlign: 'center'
+  },
+  icon:{
+    width: 16,
+    height: 16,
   }
 })

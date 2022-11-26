@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
-const TextIconButton = ({ text, onPress, color = "white", textColor = "black", image }) => {
+const TextIconButton = ({ text, onPress, color = "white", width, textColor = "black", image }) => {
     return (
         <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
-            <View style={styles.container(color)}>
+            <View style={styles.container(color, width)}>
                 <Text style={styles.text(textColor)}>{text}</Text>
                 <View style={styles.circularBtn}>
                     <Image source={image} style={styles.icon} />
@@ -17,7 +17,7 @@ const TextIconButton = ({ text, onPress, color = "white", textColor = "black", i
 export default TextIconButton
 
 const styles = StyleSheet.create({
-    container: (color) => ({
+    container: (color, width) => ({
         flexDirection: 'row',
         backgroundColor: color,
         borderRadius: 16,
@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
         padding: 16,
         borderWidth: 1,
         borderColor: "#F2F4F4",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        width
     }),
     text: (color) => ({
         fontSize: 14,
