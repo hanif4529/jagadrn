@@ -8,17 +8,17 @@ import {Button, Gap} from '../components'
 const SWIPER_DATA = [
     {
         title: 'Invest For Future',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        description: 'A sed ea maiores corporis est facere nemo officiis. Ut ea porro. Rerum quae animi consequatur blanditiis.',
         image: IlFuture
     },
     {
         title: 'Triple Your Funds',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        description: 'Dicta minus animi sunt neque iusto quis et eveniet iusto. Praesentium quos quia dolore qui rerum ut. Neque ipsa hic dolores.',
         image: IlTriple
     },
     {
         title: 'Save & Secure',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        description: 'Dolor culpa doloribus. Quia nihil sed commodi. Ab non in itaque sit asperiores voluptatibus aut. Fugit dolor natus.',
         image: IlSafe
     }
 ]
@@ -77,7 +77,8 @@ const styles = StyleSheet.create({
         width, height: height * 0.65,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 28
+        paddingHorizontal: 24,
+        paddingVertical: 30
     },
     title: {
         fontSize: 18,
@@ -93,5 +94,10 @@ const styles = StyleSheet.create({
     pagination: {
         height: 8,
         width: 8,
+    },
+    image:{
+        width: 240,
+        height: 240,
+        resizeMode: 'contain'
     }
 })

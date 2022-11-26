@@ -9,9 +9,9 @@ const Router = () => {
         <Stack.Navigator>
             <Stack.Screen name="OnBoarding" component={OnBoarding} options={{ headerShown: false }} />
             <Stack.Screen name="CreateNewPassword" component={CreateNewPassword} options={{ headerShown: false }} />
-            <Stack.Screen name="SecurityAccess" component={SecurityAccess} />
-            <Stack.Screen name="ChangePassword" component={ChangePassword} />
-            <Stack.Screen name="ChangePasswordSucces" component={ChangePasswordSucces} />
+            <Stack.Screen name="SecurityAccess" component={SecurityAccess} options={{headerShown: false}} />
+            <Stack.Screen name="ChangePassword" component={ChangePassword} options={{headerShown: false}}/>
+            <Stack.Screen name="ChangePasswordSucces" component={ChangePasswordSucces} options={{headerShown: false}} />
         </Stack.Navigator>
     )
 }

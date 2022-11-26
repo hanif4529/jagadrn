@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const Button = ({text, color = '#4D0D6E', textColor = 'white', onPress}) => {
+const Button = ({text, color = '#4D0D6E', textColor = 'white', onPress, height = 38}) => {
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
-      <View style={styles.container(color)}>
+      <View style={styles.container(color, height)}>
         <Text style={styles.text(textColor)}>{text}</Text>
       </View>
     </TouchableOpacity>
@@ -14,10 +14,11 @@ const Button = ({text, color = '#4D0D6E', textColor = 'white', onPress}) => {
 export default Button;
 
 const styles = StyleSheet.create({
-  container: (color) => ({
+  container: (color, height) => ({
     backgroundColor: color,
-    padding: 8,
+    justifyContent: 'center',
     borderRadius: 8,
+    height: height,
   }),
   text: (color) => ({
     fontSize: 14,
