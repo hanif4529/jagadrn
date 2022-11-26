@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/images/Logo.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ddccedc1-9c57-4c80-85a3-3dff3bd80642"
+      }
+    },
+    "owner": "hanif4529"
   }
 }
