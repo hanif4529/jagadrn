@@ -88,7 +88,7 @@ const ChangePassword = ({ navigation }) => {
               navigation.navigate("ChangePasswordSucces")
             } : null}>
               <View style={styles.btnContainer(isValid ? "#4D0D6E" : "#E4E7EC")}>
-                <Text style={styles.btnLabel(isValid ? "white" : "#E4E7EC")}>Change</Text>
+                <Text style={styles.btnLabel(isValid ? "white" : "#8F8F8F")}>Change</Text>
                 <Image source={isValid ? KeyActive : Key} style={styles.icon} />
               </View>
             </TouchableOpacity>

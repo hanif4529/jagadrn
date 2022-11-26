@@ -31,16 +31,17 @@ const OnBoarding = ({ navigation }) => {
                 <Text style={styles.hearderTitle}>Garuda</Text>
             </View>
             <View style={styles.body}>
-                <SwiperFlatList data={SWIPER_DATA} paginationStyleItem={styles.pagination} paginationActiveColor={"#020826"} showPagination renderItem={({ item }) => (
+                <SwiperFlatList data={SWIPER_DATA} paginationStyleItem={styles.paginationItem} paginationActiveColor={"#020826"} paginationDefaultColor={"white"} showPagination renderItem={({ item }) => (
                     <View style={styles.child}>
                         <Image source={item.image} style={styles.image} />
                         <Text style={styles.title}>{item.title}</Text>
                         <Gap height={10} />
                         <Text style={styles.description}>{item.description}</Text>
+                        <Gap height={10} />
                     </View>
                 )} />
             </View>
-            <View style={{ flex: 1, margin: 24 }}>
+            <View style={{ flex: 1, marginHorizontal: 24 }}>
                 <Button text='CREATE NEW WALLET' onPress={() => navigation.navigate('CreateNewPassword')} />
                 <Gap height={8} />
                 <Button text="ALREADY HAVE A WALLET" color='white' textColor='black' onPress={() => navigation.navigate('SecurityAccess')} />
@@ -74,11 +75,11 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins-Regular',
     },
     child: {
-        width, height: height * 0.65,
+        width,
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 24,
-        paddingVertical: 30
+        paddingVertical: 60
     },
     title: {
         fontSize: 18,
@@ -91,9 +92,12 @@ const styles = StyleSheet.create({
         lineHeight: 18,
         fontFamily: 'Poppins-Light'
     },
-    pagination: {
+    paginationItem: {
         height: 8,
         width: 8,
+        marginHorizontal: 4,
+        borderWidth: 1,
+        borderColor: '#DEDEDE',
     },
     image:{
         width: 240,
