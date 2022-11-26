@@ -1,4 +1,4 @@
-### JAJAD REACT NATIVE CHALANGE
+### JAGAD REACT NATIVE CHALLANGE
 
 Simple React native app.
 
