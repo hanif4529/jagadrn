@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start'
     },
     headerCenter: {
-        flex: 2,
+        flex: 3,
         alignItems: 'center'
     },
     headerRight: {
