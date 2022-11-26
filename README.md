@@ -23,6 +23,3 @@ This app create using react native (setup using expo) [More about expo](https://
     ```bash
     yarn ios
     ``` 
-
-### How To Run Test
-Test using jest
