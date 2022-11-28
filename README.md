@@ -33,8 +33,10 @@ scan qr on terminal to open using expo go
 scan qr on terminal to open using expo go
 
 using expo update qr code (IOS)
+
 ![image](https://user-images.githubusercontent.com/111265263/204196995-cdbaa582-a21a-4c95-9148-ea64c0c5559d.png)
 
 using expo update qr code (Android)
+
 ![image](https://user-images.githubusercontent.com/111265263/204197065-21f85a44-5130-48ea-bdc5-d4e7bc8e5d65.png)
 
